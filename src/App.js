@@ -6,13 +6,15 @@ function App() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLasttName] = useState("");
   const [fullName, setFullName] = useState("")
+  const [hasShow, setHasShow] = useState(false)
 
   const submitForm = (e) =>{
     e.preventDefault()
     const formData = new FormData(e.target)
     const payload = Object.fromEntries(formData) 
     console.log(payload)
-    setFullName(payload.firstName+" "+payload.lastName)
+    // setFullName(payload.firstName+" "+payload.lastName)
+    setHasShow(true)
 
   }
   return (
@@ -41,12 +43,17 @@ function App() {
             />
           </label>
           <br/>
-          <button type='submit'>Submit</button>
+          <button type='submit'>Submit</button>   
           <br/>
-          {fullName !== ""? `Full Name: ${fullName}`: ""}
+          {/* {fullName !== ""? `Full Name: ${fullName}`: ""} */}
+
+          {hasShow && (
+          <p>
+            Full Name: {firstName} {lastName}
+          </p>
+          )}
         </form>
         
-        {/* {fullName !== ""? `Full Name: ${fullName}`: ""} */}
     </div>
   );
 }
