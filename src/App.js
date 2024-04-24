@@ -42,9 +42,11 @@ function App() {
           </label>
           <br/>
           <button type='submit'>Submit</button>
+          <br/>
+          {fullName !== ""? `Full Name: ${fullName}`: ""}
         </form>
         
-        {fullName !== ""? `Full Name: ${fullName}`: ""}
+        {/* {fullName !== ""? `Full Name: ${fullName}`: ""} */}
     </div>
   );
 }
